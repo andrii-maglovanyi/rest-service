@@ -1,0 +1,26 @@
+pdo:
+    class: \PDO
+    arguments:
+        - "%database.dsn%"
+        - "%database.username%"
+        - "%database.password%"
+
+adapter:
+    class: RestService\app\Components\Db\Adapter
+    arguments: "%pdo%"
+
+request:
+    class: RestService\app\Components\Http\Request
+
+message:
+    class: RestService\app\Components\Message
+
+response:
+    class: RestService\app\Components\Http\Response
+    arguments:
+        - "%request%"
+        - "%message%"
+
+front_controller:
+    class: RestService\app\Components\Controllers\FrontController
+    arguments: "%request%"

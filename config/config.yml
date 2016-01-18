@@ -1,0 +1,6 @@
+database:
+    host: "localhost"
+    username: "root"
+    password: ""
+    db: "rest_service"
+    dsn: "mysql:host=localhost;dbname=rest_service"

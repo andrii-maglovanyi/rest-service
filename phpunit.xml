@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<phpunit bootstrap="./vendor/autoload.php" colors="true">
+
+    <testsuites>
+        <testsuite name="The project's test suite">
+            <directory>./tests</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <blacklist>
+            <directory suffix=".php">./vendor</directory>
+            <directory suffix=".php">./tests</directory>
+        </blacklist>
+        <whitelist>
+            <directory suffix=".php">./app</directory>
+            <directory suffix=".php">./src</directory>
+            <exclude>
+                <directory suffix=".html">./src</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+
+    <logging>
+        <log type="coverage-html" target="./log/report" charset="UTF-8"
+            yui="true" highlight="true"
+            lowUpperBound="50" highLowerBound="80"/>
+    </logging>
+
+    <php>
+        <var name="DB_DSN" value="mysql:dbname=rest_service_test;host=localhost" />
+        <var name="DB_HOST" value="localhost" />
+        <var name="DB_USER" value="root" />
+        <var name="DB_PASSWD" value="" />
+        <var name="DB_DBNAME" value="rest_service_test" />
+    </php>
+
+</phpunit>
